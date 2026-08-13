@@ -1,0 +1,8 @@
+
+config wizard 'default'
+
+config shortcuts
+	option shortcut 'pw'
+	option to_url 'http://10.0.0.1/cgi-bin/luci/admin/services/passwall'
+	option comments 'passwall'
+

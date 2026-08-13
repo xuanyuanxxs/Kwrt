@@ -1,0 +1,16 @@
+
+config opkg 'defaults'
+	option save 'auto'
+	option restore 'auto'
+	option rollback 'auto'
+	option upgr 'ai'
+	option export 'ai'
+	option proc '--force-overwrite --force-checksum --force-depends'
+	option reinstall '--force-reinstall --force-overwrite --force-checksum --force-depends'
+	option newconf '/etc'
+
+config opkg 'ignore'
+	list ipkg 'kmod'
+	list ipkg 'busybox'
+	list ipkg 'base-files'
+

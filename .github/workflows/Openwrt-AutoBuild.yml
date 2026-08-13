@@ -47,11 +47,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     
-    name: Build ${{env.TARGET}}
+    name: Build ${{ github.event.client_payload.target || 'ramips_mt7621' }}
     strategy:
       fail-fast: false
       matrix:
-        target: ["${{ env.TARGET }}"]
+        target: ["${{ github.event.client_payload.target || 'ramips_mt7621' }}"]
         
     steps:
     - name: Checkout

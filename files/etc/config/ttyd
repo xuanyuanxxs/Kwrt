@@ -1,0 +1,6 @@
+
+config ttyd
+	option interface '192.168.31.1'
+	option command '/bin/login'
+	option debug '7'
+
