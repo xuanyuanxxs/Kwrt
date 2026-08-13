@@ -198,6 +198,7 @@ jobs:
         cp -rf devices/common/. openwrt/
         cp -rf devices/${{env.TARGET}}/. openwrt/
         cp -rf devices openwrt/
+        cp -rf files openwrt/ || true
         cd openwrt
         chmod +x devices/common/$DIY_SH
         /bin/bash "devices/common/$DIY_SH"
