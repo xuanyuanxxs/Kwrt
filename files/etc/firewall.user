@@ -1,0 +1,2 @@
+# 用户的 /etc/firewall.user 原本为空
+# 如果以后有自定义 iptables 规则,在这里加,会被 build 直接烤进 rootfs

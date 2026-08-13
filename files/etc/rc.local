@@ -1,0 +1,19 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+
+
+# --- START Custom Randomization Scripts ---
+
+#修改路由器名字
+/etc/config/name.sh
+#修改wan的mac
+/etc/config/wan_mac.sh
+#修改lan的mac
+/etc/config/lan_mac.sh
+#修改wifi的mac
+/etc/config/wifi_mac.sh
+#修改ip网段
+#/etc/config/ip.sh
+
+# --- END Custom Randomization Scripts ---
+exit 0
