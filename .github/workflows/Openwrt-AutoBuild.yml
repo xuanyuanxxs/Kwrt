@@ -329,19 +329,19 @@ jobs:
         curl -k --data chat_id="${{ env.TELEGRAM_CHAT_ID }}" --data "text=🎉 OpenWrt ${{ env.VERSION }} ${{env.TARGET}} 编译成功 😋  https://dl.openwrt.ai/firmware/${{env.TARGET}}/  ${{ env.COWURL }}   ${{ env.WETRANS }} 🚀" "https://api.telegram.org/bot${{ env.TELEGRAM_TOKEN }}/sendMessage"
 
     - name: Delete workflow runs
-      uses: GitRML/delete-workflow-runs@main
+      uses: Mattraks/delete-workflow-runs@v2
       continue-on-error: true
       with:
-        token: ${{ secrets.TOKEN_KIDDIN9 }}
+        token: ${{ secrets.TOKEN_KIDDIN9 || github.token }}
         retain_days: 100
         keep_minimum_runs: 0
 
     - name: Remove old Releases
-      uses: dev-drprasad/delete-older-releases@master
+      uses: dev-drprasad/delete-older-releases@v0.3.4
       continue-on-error: true
       if: env.UPLOAD_FIRMWARE_FOR_RELEASE == 'true' && !cancelled()
       with:
         keep_latest: 15
         delete_tags: true
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN_KIDDIN9 }}
+        GITHUB_TOKEN: ${{ secrets.TOKEN_KIDDIN9 || github.token }}
