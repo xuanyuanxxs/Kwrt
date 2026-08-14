@@ -269,6 +269,8 @@ jobs:
         cd openwrt/bin/targets/*/*/
         cp $GITHUB_WORKSPACE/openwrt/.config ${{env.TARGET}}.config || true
         cp $GITHUB_WORKSPACE/openwrt/build_dir/target-*/linux-*/linux-*/.config ${{env.TARGET}}_kernel.config || true
+        rm -rf packages/ openwrt-*/packages/ openwrt-*/info/ 2>/dev/null || true
+        rm -f openwrt-*/kernel_modules.tar.gz openwrt-*/kernel_debug.tar.gz 2>/dev/null || true
         Emoji=("🎉" "🤞" "✨" "🎁" "🎈" "🎄" "🎨" "💋" "🍓" "🍕" "🍉" "💐" "🌴" "🚀" "🛸" "🗽" "⛅" "🌈" "🔥" "⛄" "🐶" "🏅" "🦄" "🐤")
         echo "EMOJI=${Emoji[$[$RANDOM % ${#Emoji[@]}]]}" >> $GITHUB_ENV
 
